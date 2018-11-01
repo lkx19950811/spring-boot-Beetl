@@ -1,4 +1,4 @@
-package com.lee.beetl;
+package com.lee.beetl.config;
 
 import org.beetl.sql.core.ClasspathLoader;
 import org.beetl.sql.core.Interceptor;
@@ -23,7 +23,7 @@ import javax.sql.DataSource;
 public class BeetlConfig {
     @Bean(name = "sqlManagerFactoryBean")
     @Primary
-    public SqlManagerFactoryBean getSqlManagerFactoryBean(@Qualifier("dataSource") DataSource dataSource) {
+    public SqlManagerFactoryBean getSqlManagerFactoryBean(@Qualifier("druidDataSource") DataSource dataSource) {
         SqlManagerFactoryBean factory = new SqlManagerFactoryBean();
         BeetlSqlDataSource source = new BeetlSqlDataSource();
         source.setMasterSource(dataSource);
