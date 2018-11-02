@@ -1,6 +1,7 @@
 package com.lee.beetl.config;
 
 import org.beetl.sql.core.ClasspathLoader;
+import org.beetl.sql.core.DefaultNameConversion;
 import org.beetl.sql.core.Interceptor;
 import org.beetl.sql.core.UnderlinedNameConversion;
 import org.beetl.sql.core.db.MySqlStyle;
@@ -30,7 +31,7 @@ public class BeetlConfig {
         factory.setCs(source);
         factory.setDbStyle(new MySqlStyle());
         factory.setInterceptors(new Interceptor[]{new DebugInterceptor()});
-        factory.setNc(new UnderlinedNameConversion());
+        factory.setNc(new DefaultNameConversion());
         factory.setSqlLoader(new ClasspathLoader("/sql"));
         return factory;
     }

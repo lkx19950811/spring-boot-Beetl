@@ -19,7 +19,7 @@ public class GenSqlAndPojo {
         DefaultNameConversion nc = new DefaultNameConversion();
         SQLManager sqlManager = new SQLManager(mysql,loader,source,nc,new
                 Interceptor[]{new DebugInterceptor()});
-        sqlManager.genPojoCodeToConsole("user");
-        sqlManager.genSQLTemplateToConsole("user");
+        sqlManager.genPojoCodeToConsole("User");
+        sqlManager.genSQLTemplateToConsole("User");
     }
 }
