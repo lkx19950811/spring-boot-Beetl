@@ -6,7 +6,7 @@ import org.beetl.sql.core.db.MySqlStyle;
 import org.beetl.sql.ext.DebugInterceptor;
 
 /**
- * author : lee Cather <br>
+ * @author : lee Cather <br>
  * date : 2018-11-01 15:44 <br>
  * desc : 自动生成pojo类 <br>
  */

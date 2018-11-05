@@ -13,6 +13,10 @@ import java.util.List;
  */
 @Service
 public interface UserRepository extends BaseMapper<User> {
-    /** 使用sqlid中的 selectUsers语句 */
+    /**
+     * 使用sqlid中的 selectUsers语句
+     * @param user 判断条件实体类
+     * @return user合集
+     */
     List<User> selectUsers(User user);
 }
