@@ -8,6 +8,7 @@ import org.beetl.sql.ext.DebugInterceptor;
 import org.beetl.sql.ext.spring4.BeetlSqlDataSource;
 import org.beetl.sql.ext.spring4.BeetlSqlScannerConfigurer;
 import org.beetl.sql.ext.spring4.SqlManagerFactoryBean;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.AutoConfigurationPackage;
@@ -15,6 +16,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
+import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 import javax.sql.DataSource;
@@ -25,12 +27,11 @@ import javax.sql.DataSource;
  * desc :  <br>
  */
 @Configuration
-@AutoConfigurationPackage
 public class BeetlConfig {
-    private Boolean showSql = true;
     @Bean(name = "sqlManagerFactoryBean")
     @Primary
-    public SqlManagerFactoryBean getSqlManagerFactoryBean(@Qualifier("druidDataSource") DataSource dataSource) {
+    public SqlManagerFactoryBean getSqlManagerFactoryBean(@Qualifier("druidDataSource") DataSource dataSource,@Qualifier("environment") Environment env) {
+        Boolean showSql = Boolean.valueOf(env.getProperty("spring.jpa.show-sql"));
         SqlManagerFactoryBean factory = new SqlManagerFactoryBean();
         BeetlSqlDataSource source = new BeetlSqlDataSource();
         source.setMasterSource(dataSource);
