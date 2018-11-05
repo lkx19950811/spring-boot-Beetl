@@ -2,8 +2,8 @@ package com.lee.beetl.pojo;
 
 import java.util.Date;
 
-/* 
-* 
+/**
+* @author lee
 * gen by beetlsql 2018-11-01
 */
 public class User {

@@ -28,4 +28,8 @@ public class UserController {
     public int add(@ModelAttribute User user){
         return userService.add(user);
     }
+    @PostMapping("/select")
+    public List<User> select (@ModelAttribute User user){
+        return userService.selectUsers(user);
+    }
 }
