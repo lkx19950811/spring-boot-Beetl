@@ -54,9 +54,10 @@ public class BeetlConfig {
      * 配置包扫描
      */
     @Bean(name = "beetlSqlScannerConfigurer")
-    public BeetlSqlScannerConfigurer getBeetlSqlScannerConfigurer() {
+    public static BeetlSqlScannerConfigurer getBeetlSqlScannerConfigurer() {
         BeetlSqlScannerConfigurer conf = new BeetlSqlScannerConfigurer();
         conf.setBasePackage("com.lee.beetl.dao");
+        //设置 包名后缀
         conf.setDaoSuffix("Repository");
         conf.setSqlManagerFactoryBeanName("sqlManagerFactoryBean");
         return conf;

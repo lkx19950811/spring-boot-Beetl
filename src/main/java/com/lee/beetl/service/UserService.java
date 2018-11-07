@@ -29,4 +29,7 @@ public class UserService {
     public List<User> selectUsers(User user){
         return userMapper.selectUsers(user);
     }
+    public List<User> queryNewUser(Integer age,String name){
+        return userMapper.queryNewUser(age,name);
+    }
 }

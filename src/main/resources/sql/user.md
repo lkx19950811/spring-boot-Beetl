@@ -4,6 +4,20 @@ selectUsers
 
 	select #use("cols")# from user  where  #use("condition")#
 
+
+queryNewUser
+===
+select a.* from user a
+@where(){
+    @if(!isEmpty(age)){
+        and a.age=#age#
+    @}
+    @if(!isEmpty(name)){
+        and a.name=#name#
+    @}
+@}
+
+
 cols
 ===
 	id,name,age,userName,roleId,date

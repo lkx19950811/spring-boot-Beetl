@@ -3,10 +3,7 @@ package com.lee.beetl.controller;
 import com.lee.beetl.pojo.User;
 import com.lee.beetl.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -31,5 +28,9 @@ public class UserController {
     @PostMapping("/select")
     public List<User> select (@ModelAttribute User user){
         return userService.selectUsers(user);
+    }
+    @PostMapping("/query")
+    public List<User> query (@RequestParam(required = false) Integer age,@RequestParam(required = false) String name){
+        return userService.queryNewUser(age,name);
     }
 }
